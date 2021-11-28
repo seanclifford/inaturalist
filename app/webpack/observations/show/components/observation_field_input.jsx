@@ -258,17 +258,17 @@ class ObservationFieldInput extends React.Component {
     return (
       <div className="input-group">
         <DateTimeWrapper
-          dateFormat={ dateFormat }
-          timeFormat={ timeFormat }
-          dateTime={ this.state.observationFieldValue }
-          timeZone={ TIMEZONE }
-          inputProps={ {
+          dateFormat={dateFormat}
+          timeFormat={timeFormat}
+          dateTime={this.state.observationFieldValue}
+          timeZone={TIMEZONE}
+          inputProps={{
             name: "value",
             autoComplete: "off",
             className: "form-control",
             placeholder: I18n.t( "date_time" )
-          } }
-          onChange={ dateString => {
+          }}
+          onChange={dateString => {
             this.setState( {
               observationFieldValue: dateString,
               observationFieldSelectedDate: dateString

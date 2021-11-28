@@ -111,25 +111,26 @@ class ObsCardComponent extends Component {
               }
             }}
           />
-          <div className={invalidDate ? "has-error" : ""} >
-              <DateTimeWrapper
-                key={`datetime${obsCard.selected_date}`}
-                reactKey={`datetime${obsCard.selected_date}`}
-                timeFormat={false}
-                timeZone={obsCard.time_zone}
-                dateTime={ obsCard.selected_date }
-                openButton="before"
-                inputProps= {{ 
-                  className: "form-control input-sm", 
-                  placeholder: I18n.t( "date_" ) 
-                }}
-                onChange={dateString => updateObsCard(
-                  obsCard, { 
-                    date: dateString, 
-                    selected_date: dateString 
-                  } )}
-              />
-            </div>
+          <div className={invalidDate ? "has-error" : ""}>
+            <DateTimeWrapper
+              key={`datetime${obsCard.selected_date}`}
+              reactKey={`datetime${obsCard.selected_date}`}
+              timeFormat={false}
+              timeZone={obsCard.time_zone}
+              dateTime={obsCard.selected_date}
+              openButton="before"
+              inputProps={{
+                className: "form-control input-sm",
+                placeholder: I18n.t( "date_" )
+              }}
+              onChange={dateString => updateObsCard(
+                obsCard, {
+                  date: dateString,
+                  selected_date: dateString
+                }
+              )}
+            />
+          </div>
           <div
             className="input-group"
             onClick={this.openLocationChooser}

@@ -289,24 +289,25 @@ class ObsCardComponent extends Component {
               }}
               config={config}
             />
-            <div className={invalidDate ? "has-error" : ""} >
+            <div className={invalidDate ? "has-error" : ""}>
               <DateTimeWrapper
                 key={`datetime${obsCard.selected_date}`}
                 reactKey={`datetime${obsCard.selected_date}`}
                 timeFormat={timeFormat}
                 timeZone={obsCard.time_zone}
-                dateTime={ obsCard.selected_date }
+                dateTime={obsCard.selected_date}
                 openButton="before"
                 openButtonClassName="input-sm"
-                inputProps= {{ 
-                  className: "form-control input-sm", 
-                  placeholder: I18n.t( "date_" ) 
+                inputProps={{
+                  className: "form-control input-sm",
+                  placeholder: I18n.t( "date_" )
                 }}
                 onChange={dateString => updateObsCard(
-                  obsCard, { 
-                    date: dateString, 
-                    selected_date: dateString 
-                  } )}
+                  obsCard, {
+                    date: dateString,
+                    selected_date: dateString
+                  }
+                )}
               />
             </div>
             <div

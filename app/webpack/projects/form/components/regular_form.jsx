@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 import {
   Grid, Row, Col, Panel
 } from "react-bootstrap";
-import DateTimeWrapper from  "../../../observations/uploader/components/date_time_wrapper";
+import DateTimeWrapper from "../../../observations/uploader/components/date_time_wrapper";
 import JQueryUIMultiselect from "../../../observations/identify/components/jquery_ui_multiselect";
 import TaxonSelector from "./taxon_selector";
 import PlaceSelector from "./place_selector";
@@ -386,7 +386,7 @@ class RegularForm extends React.Component {
               <DateTimeWrapper
                 className="datefield"
                 dateFormat="YYYY-MM-DD"
-                timeFormat={ false }
+                timeFormat={false}
                 dateTime={project.rule_observed_on}
                 onChange={date => setRulePreference( "observed_on", date )}
                 allowFutureDates

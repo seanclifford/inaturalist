@@ -1,5 +1,4 @@
 import _ from "lodash";
-import moment from "moment-timezone";
 import React from "react";
 import PropTypes from "prop-types";
 import { Glyphicon, Badge, OverlayTrigger, Tooltip, Button } from "react-bootstrap";
@@ -169,17 +168,18 @@ class LeftMenu extends SelectionBasedComponent {
     return (
       <div className="input-group">
         <DateTimeWrapper
-          dateFormat={ dateFormat }
-          timeFormat={ timeFormat }
-          dateTime={ this.props.observationFieldValue }
-          timeZone={ TIMEZONE }
-          inputProps={ {
+          dateFormat={dateFormat}
+          timeFormat={timeFormat}
+          dateTime={this.props.observationFieldValue}
+          timeZone={TIMEZONE}
+          inputProps={{
             className: "form-control",
             placeholder: I18n.t( "date_time" )
-          } }
-          onChange={ dateString => 
-            this.props.setState( { observationFieldValue: dateString,
-              observationFieldSelectedDate: dateString } )
+          }}
+          onChange={dateString => this.props.setState( {
+            observationFieldValue: dateString,
+            observationFieldSelectedDate: dateString
+          } )
           }
         />
         <span className="input-group-btn">

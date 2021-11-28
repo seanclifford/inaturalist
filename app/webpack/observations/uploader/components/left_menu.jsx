@@ -108,7 +108,7 @@ class LeftMenu extends SelectionBasedComponent {
       <div>
         <TaxonAutocomplete
           key={
-            `multitaxonac${commonSelectedTaxon && commonSelectedTaxon.title}` }
+            `multitaxonac${commonSelectedTaxon && commonSelectedTaxon.title}`}
           bootstrap
           searchExternal
           showPlaceholder
@@ -139,16 +139,18 @@ class LeftMenu extends SelectionBasedComponent {
           }
           config={this.props.config}
         />
-        <div className={invalidDate ? "has-error" : ""} >
+        <div className={invalidDate ? "has-error" : ""}>
           <DateTimeWrapper
             key={`multidate${commonDate}`}
             reactKey={`multidate${commonDate}`}
             timeZone={config.currentUser.time_zone || moment.tz.guess()}
-            dateTime={ commonDate }
+            dateTime={commonDate}
             openButton="before"
-            inputProps= {{ placeholder: this.valuesOf( "date" ).length > 1
-              ? I18n.t( "edit_multiple_dates" )
-              : I18n.t( "date_" ) }}
+            inputProps={{
+              placeholder: this.valuesOf( "date" ).length > 1
+                ? I18n.t( "edit_multiple_dates" )
+                : I18n.t( "date_" )
+            }}
             onChange={dateString => updateSelectedObsCards( {
               date: dateString,
               selected_date: dateString

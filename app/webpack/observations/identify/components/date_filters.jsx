@@ -70,9 +70,9 @@ const DateFilters = ( {
                 placeholder: "YYYY-MM-DD"
               }}
               dateFormat="YYYY-MM-DD"
-              timeFormat={ false }
-              openButton={ "after" }
-              dateTime={ params[onField] }
+              timeFormat={false}
+              openButton="after"
+              dateTime={params[onField]}
               onClick={( ) => updateSearchParams( { [dateTypeField]: "exact" } )}
               onChange={date => updateSearchParams( { [onField]: date } )}
             />
@@ -101,9 +101,9 @@ const DateFilters = ( {
                 placeholder: I18n.t( "start" )
               }}
               dateFormat="YYYY-MM-DD"
-              timeFormat={ false }
-              openButton={ "after" }
-              dateTime={ params[d1Field] }
+              timeFormat={false}
+              openButton="after"
+              dateTime={params[d1Field]}
               onClick={( ) => updateSearchParams( { [dateTypeField]: "exact" } )}
               onChange={date => updateSearchParams( { [d1Field]: date } )}
             />
@@ -120,9 +120,9 @@ const DateFilters = ( {
                 placeholder: I18n.t( "end" )
               }}
               dateFormat="YYYY-MM-DD"
-              timeFormat={ false }
-              openButton={ "after" }
-              dateTime={ params[d2Field] }
+              timeFormat={false}
+              openButton="after"
+              dateTime={params[d2Field]}
               onClick={( ) => updateSearchParams( { [dateTypeField]: "exact" } )}
               onChange={date => updateSearchParams( { [d2Field]: date } )}
             />

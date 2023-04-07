@@ -202,7 +202,7 @@ class UsersController < ApplicationController
         @user.flags_on_spam_content.each do |flag|
           flag.update(resolved: true, resolver: current_user)
         end
-        @user.flags.where(flag: Flag::SPAM).update_all(resolved: true, resolver_id: current_user.id )
+        @user.flags.where(flag: Flag::SPAM).update(resolved: true, resolver_id: current_user.id )
         @user.unsuspend!
       else
         flash[:notice] = t(:user_flagged_as_a_spammer_html, user: helpers.link_to_user( @user ) )

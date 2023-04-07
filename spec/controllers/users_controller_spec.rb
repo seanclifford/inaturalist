@@ -145,6 +145,37 @@ describe UsersController, "set_spammer" do
         f.reload
         expect( f.resolver ).to eq @curator
       end
+
+      it "indexes the user's observations" do
+        skip("Doesn't work yet. Need to fix.")
+        @user = User.make!
+        obs = Observation.make!( user: @user )
+        #Delayed::Worker.new.work_off
+        after_delayed_job_finishes do
+          post :set_spammer, params: { id: @user.id, spammer: "true" }
+        end
+        @user.reload
+        expect( @user.spammer ).to be true
+        #work_result = Delayed::Worker.new.work_off
+        es_response = Observation.elastic_search( where: { id: obs.id } ).results.results.first
+        #tried:
+        # after_delayed_job_finishes - ignore_run_at true/false
+        # Delayed::Worker.new.work_off
+        # without_delay do ... end
+        
+        #this works after everything to reindex...
+        #without_delay do
+        #  Observation.elastic_index!( scope: Observation.by( @user.id ), delay: true )
+        #end
+        expect( es_response.spam ).to be true
+        
+        post :set_spammer, params: { id: @user.id, spammer: "false" }
+        Delayed::Worker.new.work_off
+        #obs.elastic_index!
+        #@user.reload
+        es_response = Observation.elastic_search( where: { id: obs.id } ).results.results.first
+        expect( es_response.spam ).to be( false )
+      end
     end
 
     it "does not resolve spam flags when setting to spammer" do
